@@ -13,7 +13,21 @@ app.get('/', (req,res) => {
   res.render('index', {restaurantsData})
 })
 
+app.get('/search', (req, res) => {
+  if (!req.query.keywords) {
+    return res.redirect('/')
+  }
 
+  const keywords = req.query.keywords
+  const keyword = req.query.keywords.trim().toLowerCase()
+
+  const matchedRestaurant = restaurantsData.filter( 
+  data => {
+    return data.name.toLowerCase().includes(keyword) || 
+    data.category.includes(keyword)
+  })
+  res.render('index', {restaurantsData: matchedRestaurant, keywords})
+})
 
 app.listen(port, () => {
   console.log(`express server is running on http://localhost:${port}`)
