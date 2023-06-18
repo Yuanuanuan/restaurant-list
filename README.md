@@ -7,7 +7,10 @@
 - 查看餐廳詳細資訊
 - 連結到google地圖
 ## 如何使用
-1. clone此專案
+1. 在terminal中clone此專案:
+```
+git clone https://github.com/Yuanuanuan/restaurant-list.git
+```
 2. 在terminal中開啟後，輸入:
 ``` 
 npm install 
