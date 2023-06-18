@@ -29,6 +29,14 @@ app.get('/search', (req, res) => {
   res.render('index', {restaurantsData: matchedRestaurant, keywords})
 })
 
+app.get('/restaurants/:restaurantId', (req, res) => {
+  const {restaurantId} = req.params
+  const restaurantData = restaurantsData.find(data => {
+    return data.id === Number(restaurantId)
+  })
+  res.render('show', {restaurantData})
+})
+
 app.listen(port, () => {
   console.log(`express server is running on http://localhost:${port}`)
 })
