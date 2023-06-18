@@ -25,3 +25,8 @@ express server is running on http://localhost:3000
 ```
 5. 打開瀏覽器，在網址列輸入http://localhost:3000
 6. 若要結束，在terminal中按下crtl+c即可結束運行
+## 開發工具
+- express 4.18.2
+- express-handlebars 7.0.7
+- Bootstrap 5.2.1
+- Font-awesome 5.8.1
