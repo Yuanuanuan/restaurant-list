@@ -9,10 +9,10 @@
 ## 如何使用
 1. clone此專案
 2. 在terminal中開啟後，輸入:
-``` npm install
+``` npm install ```
 3. 安裝完畢後，輸入:
-``` npm run start
+``` npm run start ```
 4. 若看見以下這行代表運行成功
-``` express server is running on http://localhost:3000
+``` express server is running on http://localhost:3000 ```
 5. 打開瀏覽器，輸入http://localhost:3000網址
 6. 若要結束，在terminal中按下crtl+c即可結束運行
