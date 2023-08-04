@@ -50,7 +50,7 @@ app.get('/search', (req, res) => {
     return res.render('new')
   })
 
-  app.post('/todos', (req, res) => {
+  app.post('/restaurants', (req, res) => {
     const data = {
       name: req.body.name,
       name_en: req.body.name_en,
@@ -67,6 +67,16 @@ app.get('/search', (req, res) => {
       .then(() => {
       res.redirect('/restaurants')
       })
+      .catch((err) => console.log(err))
+  })
+
+  app.get('/restaurants/:id', (req, res) => {
+    const id = req.params.id
+
+    return Rest.findByPk(id, {
+      raw: true
+    })
+      .then((rest) => res.render('info', { rest }))
       .catch((err) => console.log(err))
   })
   
