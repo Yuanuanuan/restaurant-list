@@ -10,6 +10,14 @@ header {
   color: #226089;
 }
 
+.create-btn {
+  text-decoration: none;
+  padding: .5rem 1rem;
+  background-color: #68b1f7;
+  border-radius: 20px;
+  color: #f0fffd;
+}
+
 .banner {
   position: relative;
   z-index: -1;

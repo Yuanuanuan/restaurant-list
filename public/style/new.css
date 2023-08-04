@@ -1,0 +1,20 @@
+form {
+  width: 100%;
+}
+
+.new-form-wrapper {
+  width: 80%;
+  border: 2px solid black;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.input-item {
+  margin-top: 2rem;
+}
+
+.input-item input {
+  min-width: 500px;
+  min-height: 35px;
+}

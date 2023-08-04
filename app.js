@@ -23,30 +23,34 @@ app.get('/restaurants', (req,res) => {
   }) 
     .then((rest) => res.render('index', { rest }))
     .catch((err) => console.log(err))
-  // return Rest.findAll({
-  //   attributes: ['id', 'image', 'name', 'category', 'rating'],
-  //   raw: true
-  // }) 
-  //   .then((rest) => res.send({ rest }))
-  //   .catch((err) => console.log(err))
-
 })
 
 app.get('/search', (req, res) => {
   if (!req.query.keywords) {
-    return res.redirect('/')
+    return res.redirect('/restaurants')
   }
 
   const keywords = req.query.keywords
   const keyword = req.query.keywords.trim().toLowerCase()
 
-  const matchedRestaurant = restaurantsData.filter( 
-  data => {
-    return data.name.toLowerCase().includes(keyword) || 
-    data.category.includes(keyword)
+  Rest.findAll({
+    raw: true
   })
-  res.render('index', {restaurantsData: matchedRestaurant, keywords})
-})
+    .then((data) => {
+      const restaurantName = data.filter((data) => {
+        return data.name.toLowerCase().includes(keyword) || data.category.includes(keyword)
+      })
+
+      res.render('index', { rest: restaurantName, keywords })
+    })
+    .catch((err) => console.log(err))
+  })
+
+  app.get('/restaurants/new', (req, res) => {
+    return res.render('new')
+  })
+  
+
 
 app.get('/restaurants/:restaurantId', (req, res) => {
   const {restaurantId} = req.params
