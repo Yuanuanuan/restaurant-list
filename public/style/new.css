@@ -1,4 +1,4 @@
-#create-form {
+#create-form, #update-form {
   width: 100%;
   margin-top: 3rem;
 }
@@ -43,4 +43,35 @@
   background-color: #088dca;
   border: none;
   box-shadow: 0 0 10px 2px #088dca;
+}
+
+.edit-btns {
+  width: 60%;
+  margin: 3rem auto 3rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.back-btn {
+  background-color: buttonface;
+  text-decoration: none;
+  color: black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.save-btn, .back-btn {
+  width: 30%;
+  height: 50px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+}
+
+.save-btn:hover, .back-btn:hover {
+  color: #fff;
+  background-color: #088dca;
+  border: none;
+  box-shadow: 0 0 5px 2px #088dca;
 }
