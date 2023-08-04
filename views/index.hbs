@@ -36,8 +36,11 @@
           </div>
         </div>
         <div class="tools">
-          <a href="/restaurants/{{this.id}}/edit">edit</a>
-          <a href="/restaurants/{{this.id}}">detail</a>
+          <a href="/restaurants/{{this.id}}/edit">Edit</a>
+          <a href="/restaurants/{{this.id}}">Detail</a>
+          <form action="/restaurants/{{this.id}}?_method=DELETE" method="POST" style="display: inline;">
+            <button type="submit">Delete</button>
+          </form>
         </div>
     </div>
     {{/each}}
