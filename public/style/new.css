@@ -1,20 +1,46 @@
-form {
+#create-form {
   width: 100%;
+  margin-top: 3rem;
 }
 
 .new-form-wrapper {
-  width: 80%;
-  border: 2px solid black;
+  background-color: #ddd;
+  width: 60%;
+  /* border: 2px solid black; */
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 2px #999;
+}
+
+.input-items {
+  padding: .5rem 1rem;
 }
 
 .input-item {
-  margin-top: 2rem;
+  margin: 2rem 0;
 }
 
 .input-item input {
   min-width: 500px;
   min-height: 35px;
+}
+
+.input-item input:focus {
+  outline: 2px solid rgb(94, 157, 216);
+}
+
+.new-btn {
+  width: 20%;
+  height: 50px;
+  margin: 3rem 40% 5rem;
+  border: 1px solid #ccc;
+}
+
+.new-btn:hover {
+  color: #fff;
+  background-color: #088dca;
+  border: none;
+  box-shadow: 0 0 10px 2px #088dca;
 }

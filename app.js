@@ -49,6 +49,26 @@ app.get('/search', (req, res) => {
   app.get('/restaurants/new', (req, res) => {
     return res.render('new')
   })
+
+  app.post('/todos', (req, res) => {
+    const data = {
+      name: req.body.name,
+      name_en: req.body.name_en,
+      category: req.body.category,
+      image: req.body.image,
+      location: req.body.location,
+      phone: req.body.phone,
+      google_map: req.body.google_map,
+      rating: req.body.rating,
+      description: req.body.description
+    }
+
+    return Rest.create(data)
+      .then(() => {
+      res.redirect('/restaurants')
+      })
+      .catch((err) => console.log(err))
+  })
   
 
 

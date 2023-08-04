@@ -1,4 +1,4 @@
-<form action="/todos" method="post">
+<form action="/todos" method="post" id="create-form">
   <section class="new-form-wrapper">
     <div class="input-items">
       <div class="input-item">
@@ -37,7 +37,8 @@
         <label for="">餐廳描述 : </label>
         <input type="text" placeholder="please input restaurant's description" name="description">
       </div>
-      <button type="submit">Create Restaurant</button>
     </div>
   </section>
 </form>
+
+<button type="submit" form="create-form" class="new-btn">Create Restaurant</button>
