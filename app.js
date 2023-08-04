@@ -17,18 +17,18 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
 app.get('/restaurants', (req,res) => {
-  // return Rest.findAll({
-  //   attributes: ['id', 'name', 'category', 'rating', 'img'],
-  //   raw: true
-  // }) 
-  //   .then((rest) => res.render('index', { rest }))
-  //   .catch((err) => console.log(err))
   return Rest.findAll({
     attributes: ['id', 'image', 'name', 'category', 'rating'],
     raw: true
   }) 
-    .then((rest) => res.send({ rest }))
+    .then((rest) => res.render('index', { rest }))
     .catch((err) => console.log(err))
+  // return Rest.findAll({
+  //   attributes: ['id', 'image', 'name', 'category', 'rating'],
+  //   raw: true
+  // }) 
+  //   .then((rest) => res.send({ rest }))
+  //   .catch((err) => console.log(err))
 
 })
 
