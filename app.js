@@ -1,16 +1,35 @@
 const express = require('express')
-const {engine} = require('express-handlebars')
+const { engine } = require('express-handlebars')
+const methodOverride = require('method-override')
 const app = express()
+
+const db = require('./models')
+const Rest = db.Restaurant
+
 const port = 3000
-const restaurantsData = require('./restaurant.json').results
 
 app.engine('.hbs', engine({extname: '.hbs'}))
 app.set('view engine', '.hbs')
 app.set('views', './views')
 app.use(express.static('public'))
 
-app.get('/', (req,res) => {
-  res.render('index', {restaurantsData})
+app.use(express.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
+
+app.get('/restaurants', (req,res) => {
+  // return Rest.findAll({
+  //   attributes: ['id', 'name', 'category', 'rating', 'img'],
+  //   raw: true
+  // }) 
+  //   .then((rest) => res.render('index', { rest }))
+  //   .catch((err) => console.log(err))
+  return Rest.findAll({
+    attributes: ['id', 'image', 'name', 'category', 'rating'],
+    raw: true
+  }) 
+    .then((rest) => res.send({ rest }))
+    .catch((err) => console.log(err))
+
 })
 
 app.get('/search', (req, res) => {
